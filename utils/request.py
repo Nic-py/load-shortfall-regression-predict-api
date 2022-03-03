@@ -21,6 +21,8 @@
 import requests
 import pandas as pd
 import numpy as np
+import os
+import sys
 
 # Load data from file to send as an API POST request.
 # We prepare a DataFrame with the public test set + riders data
@@ -50,6 +52,6 @@ api_response = requests.post(url, json=feature_vector_json)
 # Display the prediction result
 print("Received POST response:")
 print("*"*50)
-print(f"API prediction result: {api_response.json()[0]}")
+print(f"API prediction result: {api_response.json()}")
 print(f"The response took: {api_response.elapsed.total_seconds()} seconds")
 print("*"*50)

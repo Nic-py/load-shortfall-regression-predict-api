@@ -22,15 +22,22 @@ import pickle
 import json
 import numpy as np
 from model import load_model, make_prediction
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 # Application definition
 app = Flask(__name__)
 
+@app.route('/api_v0.1')
+def home():
+    print("Stress")
+    return "<p>Hello, World!</p>"
+    
+
+
 # Load our model into memory.
 # Please update this path to reflect your own trained model.
 static_model = load_model(
-    path_to_model='assets/trained-models/load_shortfall_simple_lm_regression.pkl')
+    path_to_model='assets/trained-models/rf_model.pkl')
 
 print ('-'*40)
 print ('Model successfully loaded')
